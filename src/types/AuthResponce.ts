@@ -1,4 +1,4 @@
 export interface AuthResponce {
-	token: string;
+	token: string | null;
 	message?: string;
 }

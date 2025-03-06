@@ -12,7 +12,7 @@ export const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get<{ success: boolean; data: InfoResponse }>(`${PORT}}/info`)
+			.get<{ success: boolean; data: InfoResponse }>(`${PORT}/info`)
 			.then((response) => {
 				if (response.data.success) {
 					setAboutContent(response.data.data.info);

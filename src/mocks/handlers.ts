@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw';
 import db from '../db.json';
-import { LoginRequest } from '../types';
 import { PORT } from '../constants';
+import { LoginRequest } from '../types';
 
 export const handlers = [
 	// /info

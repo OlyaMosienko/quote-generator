@@ -37,12 +37,15 @@ export const Authentication = () => {
 			})
 			.then((response) => {
 				if (response.data.success) {
-					sessionStorage.setItem(
-						'token',
-						JSON.stringify(response.data.data.token),
-					);
-					login(response.data.data.token);
-					navigate('/profile');
+					const token = response.data.data.token;
+
+					if (token) {
+						sessionStorage.setItem('token', JSON.stringify(token));
+						login(token);
+						navigate('/profile');
+					} else {
+						setError('Token is missing in the response');
+					}
 				} else {
 					setError(
 						response.data.data.message || 'Error loading information :(',
