@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { H1 } from '../components';
+import { H1, Loader } from '../components';
 import { formatTextToHTML } from '../helpers';
 
 interface InfoResponse {
@@ -16,8 +16,6 @@ export const Home = () => {
 		axios
 			.get<{ success: boolean; data: InfoResponse }>('http://localhost:5000/info')
 			.then((response) => {
-				console.log(response);
-
 				if (response.data.success) {
 					setAboutContent(response.data.data.content);
 				} else {
@@ -32,7 +30,7 @@ export const Home = () => {
 		<section>
 			<H1>Little story about the company</H1>
 			{isLoading ? (
-				<div className="mt-6">Loading...</div>
+				<Loader />
 			) : (
 				<article className="mt-6">
 					{error ? (

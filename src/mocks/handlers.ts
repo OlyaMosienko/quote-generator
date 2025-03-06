@@ -1,7 +1,11 @@
-import { http, HttpResponse } from 'msw';
+import { delay, http, HttpResponse } from 'msw';
+
+const URL = 'http://localhost:5000';
 
 export const handlers = [
-	http.get('http://localhost:5000/info', () => {
+	http.get(`${URL}/info`, async () => {
+		await delay(1500);
+
 		return HttpResponse.json({
 			success: true,
 			data: { content: 'Some information about the <b>company</b>.' },
