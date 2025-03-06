@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Authentication, Home } from './pages';
+import { Authentication, Home, Profile } from './pages';
 import { NavPanel, ProtectedRoute } from './components';
 import { useAuth } from './providers';
 
@@ -15,7 +15,7 @@ export const App = () => {
 					path="/profile"
 					element={
 						<ProtectedRoute token={token}>
-							<div>Profile</div>
+							<Profile />
 						</ProtectedRoute>
 					}
 				/>

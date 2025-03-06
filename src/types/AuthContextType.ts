@@ -1,5 +1,6 @@
 export interface AuthContextType {
 	token: string | null;
-	login: (token: string) => void;
+	userMail: string | null;
+	login: (token: string, userMail: string) => void;
 	logout: () => void;
 }

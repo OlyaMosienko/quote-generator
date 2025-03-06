@@ -41,7 +41,7 @@ export const Authentication = () => {
 
 					if (token) {
 						sessionStorage.setItem('token', JSON.stringify(token));
-						login(token);
+						login(token, email);
 						navigate('/profile');
 					} else {
 						setError('Token is missing in the response');

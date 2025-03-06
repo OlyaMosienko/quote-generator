@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw';
 import db from '../db.json';
 import { PORT } from '../constants';
-import { LoginRequest } from '../types';
+import { LoginRequest, ProfileResponce } from '../types';
 
 export const handlers = [
 	// /info
@@ -59,5 +59,38 @@ export const handlers = [
 			success: true,
 			data: {},
 		});
+	}),
+
+	// /profile
+	http.post(`${PORT}/profile`, async ({ request }) => {
+		await delay(500);
+
+		const { userMail } = (await request.json()) as ProfileResponce;
+		const token = new URL(request.url).searchParams.get('token');
+
+		if (!token) {
+			return HttpResponse.json(
+				{
+					success: false,
+					message: 'Token is missing',
+				},
+			);
+		}
+
+		const user = db.profiles.find(
+			(u) => u.email === userMail,
+		);
+
+		if (user) {
+			return HttpResponse.json({
+				success: true,
+				data: { fullname: user.fullname, userMail },
+			});
+		} else {
+			return HttpResponse.json({
+				success: false,
+				data: { message: 'User not found' },
+			});
+		}
 	}),
 ];
