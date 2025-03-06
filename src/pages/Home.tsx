@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { H1, Loader } from '../components';
 import { formatTextToHTML } from '../helpers';
-
-interface InfoResponse {
-	content: string;
-}
+import { InfoResponse } from '../types';
+import { PORT } from '../constants';
 
 export const Home = () => {
 	const [aboutContent, setAboutContent] = useState<string | null>(null);
@@ -14,10 +12,10 @@ export const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get<{ success: boolean; data: InfoResponse }>('http://localhost:5000/info')
+			.get<{ success: boolean; data: InfoResponse }>(`${PORT}}/info`)
 			.then((response) => {
 				if (response.data.success) {
-					setAboutContent(response.data.data.content);
+					setAboutContent(response.data.data.info);
 				} else {
 					setError('Error loading information :(');
 				}

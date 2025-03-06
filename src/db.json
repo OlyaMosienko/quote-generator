@@ -2,17 +2,19 @@
 	"info": {
 		"content": "Some information about the <b>company</b>."
 	},
-	"profile": [
+	"profiles": [
 		{
+			"fullname": "Aleksei K",
 			"email": "aleksei@example.com",
 			"password": "lkJlkn8hj"
 		},
 		{
+			"fullname": "Test T",
 			"email": "test@test.ru",
 			"password": "qwe123"
 		}
 	],
-	"author": [
+	"authors": [
 		{
 			"authorId": 1,
 			"name": "Walt Disney"
@@ -26,51 +28,51 @@
 			"name": "Albert Einstein"
 		}
 	],
-	"quote": [
+	"quotes": [
 		{
 			"quoteId": 1,
 			"authorId": 1,
-			"content": "The more you like yourself, the less you are like anyone else, which makes you unique."
+			"quote": "The more you like yourself, the less you are like anyone else, which makes you unique."
 		},
 		{
 			"quoteId": 2,
 			"authorId": 1,
-			"content": "Disneyland is a work of love. We didn't go into Disneyland just with the idea of making money."
+			"quote": "Disneyland is a work of love. We didn't go into Disneyland just with the idea of making money."
 		},
 		{
 			"quoteId": 3,
 			"authorId": 1,
-			"content": "I always like to look on the optimistic side of life, but I am realistic enough to know that life is a complex matter."
+			"quote": "I always like to look on the optimistic side of life, but I am realistic enough to know that life is a complex matter."
 		},
 		{
 			"quoteId": 4,
 			"authorId": 2,
-			"content": "The secret of getting ahead is getting started."
+			"quote": "The secret of getting ahead is getting started."
 		},
 		{
 			"quoteId": 5,
 			"authorId": 2,
-			"content": "Part of the secret of a success in life is to eat what you like and let the food fight it out inside."
+			"quote": "Part of the secret of a success in life is to eat what you like and let the food fight it out inside."
 		},
 		{
 			"quoteId": 6,
 			"authorId": 2,
-			"content": "You can't depend on your eyes when your imagination is out of focus."
+			"quote": "You can't depend on your eyes when your imagination is out of focus."
 		},
 		{
 			"quoteId": 7,
 			"authorId": 3,
-			"content": "Look deep into nature, and then you will understand everything better."
+			"quote": "Look deep into nature, and then you will understand everything better."
 		},
 		{
 			"quoteId": 8,
 			"authorId": 3,
-			"content": "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning."
+			"quote": "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning."
 		},
 		{
 			"quoteId": 9,
 			"authorId": 3,
-			"content": "The only source of knowledge is experience."
+			"quote": "The only source of knowledge is experience."
 		}
 	]
 }
