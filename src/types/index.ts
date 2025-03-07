@@ -4,3 +4,5 @@ export * from './AuthContextType';
 export * from './InfoResponse';
 export * from './ProtectedRouteProps';
 export * from './ProfileResponse';
+export * from './UserAvatarProps';
+export * from './QuoteProps';

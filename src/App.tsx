@@ -5,6 +5,7 @@ import { useAuth } from './providers';
 
 export const App = () => {
 	const { token } = useAuth();
+
 	return (
 		<main className="container max-w-4/6 min-h-screen mx-auto px-4 py-12 font-sans text-gray-950">
 			<NavPanel />

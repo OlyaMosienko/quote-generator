@@ -3,7 +3,9 @@ import { AuthContext } from './AuthContext';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const [token, setToken] = useState<string | null>(sessionStorage.getItem('token'));
-	const [userMail, setUserMail] = useState<string | null>(sessionStorage.getItem('userMail'));
+	const [userMail, setUserMail] = useState<string | null>(
+		sessionStorage.getItem('userMail'),
+	);
 
 	const login = (token: string, mail: string) => {
 		sessionStorage.setItem('token', token);

@@ -69,17 +69,13 @@ export const handlers = [
 		const token = new URL(request.url).searchParams.get('token');
 
 		if (!token) {
-			return HttpResponse.json(
-				{
-					success: false,
-					message: 'Token is missing',
-				},
-			);
+			return HttpResponse.json({
+				success: false,
+				message: 'Token is missing',
+			});
 		}
 
-		const user = db.profiles.find(
-			(u) => u.email === userMail,
-		);
+		const user = db.profiles.find((u) => u.email === userMail);
 
 		if (user) {
 			return HttpResponse.json({
@@ -92,5 +88,61 @@ export const handlers = [
 				data: { message: 'User not found' },
 			});
 		}
+	}),
+
+	// /author
+	http.get(`${PORT}/author`, async ({ request }) => {
+		const token = new URL(request.url).searchParams.get('token');
+
+		if (!token) {
+			return HttpResponse.json({
+				success: false,
+				message: 'Token is missing',
+			});
+		}
+
+		const randomAuthor = db.authors[Math.floor(Math.random() * db.authors.length)];
+
+		await delay(5000);
+
+		return HttpResponse.json({
+			success: true,
+			data: { authorId: randomAuthor.authorId, name: randomAuthor.name },
+		});
+	}),
+
+	// /quote
+	http.get(`${PORT}/quote`, async ({ request }) => {
+		const token = new URL(request.url).searchParams.get('token');
+		const authorId = new URL(request.url).searchParams.get('authorId');
+
+		if (!token || !authorId) {
+			return HttpResponse.json({
+				success: false,
+				message: 'Token or authorId is missing',
+			});
+		}
+
+		const quotes = db.quotes.filter((quote) => quote.authorId === Number(authorId));
+
+		if (quotes.length === 0) {
+			return HttpResponse.json(
+				{ success: false, message: 'No quotes found for this author' },
+				{ status: 404 },
+			);
+		}
+
+		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+		await delay(5000);
+
+		return HttpResponse.json({
+			success: true,
+			data: {
+				quoteId: randomQuote.quoteId,
+				authorId: randomQuote.authorId,
+				quote: randomQuote.quote,
+			},
+		});
 	}),
 ];
