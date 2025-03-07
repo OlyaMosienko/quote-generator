@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+# Приложение-генератор случайных цитат
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="300" alt="image" src="./public/assets/screen2.jpg">
+<img width="300" alt="image" src="./public/assets/screen.jpg">
+<img width="300" alt="image" src="./public/assets/screen3.jpg">
 
-Currently, two official plugins are available:
+1. Вход в приложение. Для входа можно использовать:
+   `Email: test@test.ru Пароль: qwe123`
+2. После авторизации появляется доступ к профилю пользователя.
+3. По кнопке "Update" идет запрос имитирующий цепочку асинхронных запросов к серверу.
+4. Процесс и результаты запросов отображаются в модальном окне.
+5. Пользователь имеет возможность остановить процесс, не дожидаясь завешрения.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Для этого я использовала:
 
-## Expanding the ESLint configuration
+- Сборка на Vite
+- React + TS
+- React Hook Form + yup
+- Mock Service Worker
+- custom hooks
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[🔗 Ссылка на демо приложения](https://quote-generator.yhub.net/)
+
+## Как изучить проект локально:
+
+- установка зависимостей
 
 ```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- запуск на лайв-сервере
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+npm run dev
 ```
